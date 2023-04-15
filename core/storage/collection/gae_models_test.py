@@ -101,21 +101,21 @@ class CollectionModelUnitTest(test_utils.GenericTestBase):
 
     def test_convert_to_valid_dict_with_valid_dict(self) -> None:
         model_dict = {
-            "id": "collection_id",
-            "title": "Collection Title",
-            "description": "Collection Description",
-            "category": "category",
-            "version": 1,
-            "schema_version": 1,
-            "collection_contents": {"nodes": [], "skill_ids": []},
-            "language_code": "en",
+            'id': 'collection_id',
+            'title': 'Collection Title',
+            'description': 'Collection Description',
+            'category': 'category',
+            'version': 1,
+            'schema_version': 1,
+            'collection_contents': {'nodes': [], 'skill_ids': []},
+            'language_code': 'en',
         }
-        result = collection_models.CollectionModel.convert_to_valid_dict(model_dict)
+        result = collection_models.CollectionModel.convert_to_valid_dict(model_dict) # pylint: disable=line-too-long
         self.assertEqual(result, model_dict)
 
-    def test_convert_to_valid_dict_with_empty_dict(self) ->  None:
+    def test_convert_to_valid_dict_with_empty_dict(self) -> None:
         model_dict = {}
-        result = collection_models.CollectionModel.convert_to_valid_dict(model_dict)
+        result = collection_models.CollectionModel.convert_to_valid_dict(model_dict) # pylint: disable=line-too-long
         self.assertEqual(result, {})
 
     def test_reconstitute(self) -> None:
@@ -272,12 +272,13 @@ class CollectionRightsModelUnitTest(test_utils.GenericTestBase):
             collection_models.CollectionRightsModel.get_deletion_policy(),
             base_models.DELETION_POLICY.PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE
         )
-    
+
     def test_get_model_association_to_user(self) -> None:
         self.assertEqual(
             collection_models.CollectionRightsModel.
                 get_model_association_to_user(),
-            base_models.MODEL_ASSOCIATION_TO_USER.ONE_INSTANCE_SHARED_ACROSS_USERS)
+            base_models.
+            MODEL_ASSOCIATION_TO_USER.ONE_INSTANCE_SHARED_ACROSS_USERS)
 
     def test_get_field_name_mapping_to_takeout_keys(self) -> None:
         self.assertEqual(
@@ -292,7 +293,7 @@ class CollectionRightsModelUnitTest(test_utils.GenericTestBase):
         )
 
     def test_get_export_policy(self) -> None:
-        export_policy = collection_models.CollectionRightsModel.get_export_policy()
+        export_policy = collection_models.CollectionRightsModel.get_export_policy() # pylint: disable=line-too-long
         self.assertEqual(
             export_policy['owner_ids'],
             base_models.EXPORT_POLICY.EXPORTED)
@@ -593,11 +594,10 @@ class CollectionCommitLogEntryModelUnitTest(test_utils.GenericTestBase):
             base_models.MODEL_ASSOCIATION_TO_USER.NOT_CORRESPONDING_TO_USER)
 
     def test_get_export_policy(self) -> None:
-        export_policy = collection_models.CollectionCommitLogEntryModel.get_export_policy()
+        export_policy = collection_models.CollectionCommitLogEntryModel.get_export_policy() # pylint: disable=line-too-long
         self.assertEqual(
             export_policy['collection_id'],
             base_models.EXPORT_POLICY.NOT_APPLICABLE)
-
 
     def test_has_reference_to_user_id(self) -> None:
         commit = collection_models.CollectionCommitLogEntryModel.create(
@@ -703,7 +703,7 @@ class CollectionSummaryModelUnitTest(test_utils.GenericTestBase):
             collection_models.CollectionSummaryModel.get_deletion_policy(),
             base_models.DELETION_POLICY.PSEUDONYMIZE_IF_PUBLIC_DELETE_IF_PRIVATE
         )
-    
+
     def test_get_model_association_to_user(self) -> None:
         self.assertEqual(
             collection_models.CollectionSummaryModel.
@@ -711,7 +711,7 @@ class CollectionSummaryModelUnitTest(test_utils.GenericTestBase):
             base_models.MODEL_ASSOCIATION_TO_USER.NOT_CORRESPONDING_TO_USER)
 
     def test_get_export_policy(self) -> None:
-        export_policy = collection_models.CollectionSummaryModel.get_export_policy()
+        export_policy = collection_models.CollectionSummaryModel.get_export_policy() # pylint: disable=line-too-long
         self.assertEqual(
             export_policy['title'],
             base_models.EXPORT_POLICY.NOT_APPLICABLE)
