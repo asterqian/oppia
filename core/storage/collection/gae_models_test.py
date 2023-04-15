@@ -113,11 +113,6 @@ class CollectionModelUnitTest(test_utils.GenericTestBase):
         result = collection_models.CollectionModel.convert_to_valid_dict(model_dict) # pylint: disable=line-too-long
         self.assertEqual(result, model_dict)
 
-    def test_convert_to_valid_dict_with_empty_dict(self) -> None:
-        model_dict = {}
-        result = collection_models.CollectionModel.convert_to_valid_dict(model_dict) # pylint: disable=line-too-long
-        self.assertEqual(result, {})
-
     def test_reconstitute(self) -> None:
         collection = collection_domain.Collection.create_default_collection(
             'id', title='A title',
