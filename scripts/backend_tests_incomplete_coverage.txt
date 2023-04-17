@@ -85,6 +85,7 @@ core.platform.taskqueue.cloud_taskqueue_services_test
 core.platform.taskqueue.cloud_tasks_emulator_test
 core.schema_utils_test
 core.storage.base_model.gae_models_test
+core.storage.collection.gae_models_test
 core.storage.exploration.gae_models_test
 core.storage.question.gae_models_test
 core.storage.topic.gae_models_test
